@@ -1,4 +1,35 @@
 .header {
+   background-color: #2fb4ff;
+   color: white;
+   font-weight: 700;
+   padding: 20px 50px;
+   height: ;
+}
+
+.header__items {
    display: flex;
-   justify-content: center;
+   flex-direction: row;
+   column-gap: 40px;
+
+}
+
+.header__item {
+   display: block;
+
+}
+
+.header__link {
+   transition-duration: 0.1s;
+}
+
+.header__link:hover {
+   color: aquamarine;
+}
+
+.active-link {
+   color: aquamarine;
+}
+
+.header__item:first-child {
+   flex-grow: 2;
 }

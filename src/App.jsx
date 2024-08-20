@@ -1,22 +1,26 @@
 
-import './styles/App.css'
+import './styles/App.css';
+import { Routes, Route } from 'react-router-dom';
+
+import { Auth } from './Pages/Auth';
+import { Radar } from './Pages/Radar';
+import { Technology } from './Pages/Technology';
+import { Score } from './Pages/Score';
+
+import { Layout } from './components/Layout';
 
 function App() {
   return (
     
     <>
-      <header className="header">
-        <nav>
-          <ul>
-            <li><a href="/Auth">Авторизация</a></li>
-            <li><a href="/Radar">Технологии</a></li>
-            <li><a href="/Technology">Радар</a></li>
-          </ul>
-        </nav>
-      </header>
-      <div>
-        
-      </div>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route path= '/' element={<Radar />}/> 
+          <Route path= '/Technology' element={<Technology />}/> 
+          <Route path= '/Auth' element={<Auth />}/> 
+          <Route path= '/Score' element={<Score />}/> 
+        </Route>
+      </Routes>
     </>
     
   );
