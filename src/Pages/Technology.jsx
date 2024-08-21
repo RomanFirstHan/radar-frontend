@@ -1,7 +1,17 @@
 import React from 'react'
+import CreateTech from '../components/Tech/CreateTech'
+
 
 export function Technology() {
+
+  const tech = CreateTech()
+
   return (
-    <h1>Technology</h1>
+    <>
+      <section className='container'>
+        <div className='tech-form'>{tech}</div>
+        <h1>Technology</h1>
+      </section>
+    </>
   )
 }

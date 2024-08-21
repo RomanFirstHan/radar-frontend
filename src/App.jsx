@@ -10,8 +10,7 @@ import { Score } from './Pages/Score';
 import { Layout } from './components/Layout';
 
 function App() {
-  return (
-    
+  return (    
     <>
       <Routes>
         <Route path='/' element={<Layout />}>
@@ -21,8 +20,7 @@ function App() {
           <Route path= '/Score' element={<Score />}/> 
         </Route>
       </Routes>
-    </>
-    
+    </>    
   );
 }
 

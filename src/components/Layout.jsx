@@ -7,7 +7,7 @@ export function Layout() {
   return (
     <>
       <header className="header">
-        <nav>
+        <nav className='container'>
           <ul className='header__items'>
             <li className='header__item'><NavLink className={setActve} to="/Auth">Авторизация</NavLink></li>
             <li className='header__item'><NavLink className={setActve} to="/Technology">Технологии</NavLink></li>

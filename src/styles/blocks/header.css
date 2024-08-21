@@ -23,11 +23,11 @@
 }
 
 .header__link:hover {
-   color: aquamarine;
+   color: #8eff59;
 }
 
 .active-link {
-   color: aquamarine;
+   color: #8eff59;
 }
 
 .header__item:first-child {

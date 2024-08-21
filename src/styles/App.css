@@ -3,3 +3,6 @@
 @import url(utils.css);
 
 @import url(./blocks/header.css);
+@import url(./blocks/form.css);
+@import url(./blocks/button.css);
+@import url(./blocks/tech-form.css);
