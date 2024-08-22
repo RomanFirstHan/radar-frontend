@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { token } from '../../utils/token'
 
 
 export default function CreateTech() {
@@ -6,31 +7,41 @@ export default function CreateTech() {
   const [isLoading, setIsLoading] = useState(false)
   let url = 80
 
-  const [email, setEmail] = useState('')
+
   const [name, setName] = useState('')
-  const [lastName, setLastName] = useState('')
+  const [URL, setURL] = useState('')
   const [role, setRole] = useState('')
 
   const body = {
-   "last_name": lastName,
-   "first_name": name,
-   "email": email
+   "name": name,
+   "documentationUrl": URL,
+   "currentAverageScore": 0,
+   "category": role
 }
 
+console.log(body)
+console.log(token)
 
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  setIsLoading(true)
+  fetch('http://localhost:8080/api/tech/createSolution', {
+    'method': 'POST',
+    'body': JSON.stringify(body),
+     'headers': {
+      'accept': '*/*',
+      'Authorization': token,
+      'Content-Type': 'application/json', 
+      }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-    fetch(url +'/api/get-roles', { 
-      'method': 'POST',
-      'body': body
+  })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    // .then(result => setAnswer(result))
+    .catch(err => console.log(err))
+    .finally(() => setIsLoading(false))
+}
 
-    })
-      .then(response => response.json())
-      .catch(err => console.log(err))
-      .finally(() => setIsLoading(false))
-  }
 
   return (
     <>
@@ -41,7 +52,7 @@ export default function CreateTech() {
         </div>
         <div className='form__item'>
           <label htmlFor="lastName" className='form__title'>Ссылка</label>
-          <input type="text" placeholder='Ссылка' id="lastName" className='form__input input' onChange={(e) => setLastName(e.target.value)} />
+          <input type="text" placeholder='Ссылка' id="URL" className='form__input input' onChange={(e) => setURL(e.target.value)} />
         </div>
         {/* <div className='form__item'>
           <label htmlFor="email" className='form__title'>Категория</label>
@@ -52,14 +63,14 @@ export default function CreateTech() {
         <select name="" id="roles" className="form__input" defaultValue={'default'} required onChange={(e)=> setRole(e.target.value)}>
           <option value="default" disabled>Выберите категорию</option>
           
-             <option value='0' key={0}>Languages</option>
-             <option value='1' key={1}>Tools</option>
-             <option value='2' key={2}>Techniques</option>
-             <option value='3' key={3}>Platforms</option>
+             <option value='Languages' key={0}>Languages</option>
+             <option value='Tools' key={1}>Tools</option>
+             <option value='Techniques' key={2}>Techniques</option>
+             <option value='Platforms' key={3}>Platforms</option>
 
         </select>
         </div>
-        <button className='button form__button'>Добавить технологию</button>
+        <button className='button form__button' type='submit'>Добавить технологию</button>
       </form>
       <div>{isLoading && <p className='loading'>Грузим ответ</p>}</div>
     </>
