@@ -15,7 +15,6 @@ export default function CreateTech() {
   const body = {
    "name": name,
    "documentationUrl": URL,
-   "currentAverageScore": 0,
    "category": role
 }
 
@@ -31,7 +30,7 @@ const handleSubmit = async (e) => {
      'headers': {
       'accept': '*/*',
       'Authorization': token,
-      'Content-Type': 'application/json', 
+      'Content-Type': 'application/json' 
       }
 
   })
@@ -63,7 +62,7 @@ const handleSubmit = async (e) => {
         <select name="" id="roles" className="form__input" defaultValue={'default'} required onChange={(e)=> setRole(e.target.value)}>
           <option value="default" disabled>Выберите категорию</option>
           
-             <option value='Languages' key={0}>Languages</option>
+             <option value='LANGUAGES_FRAMEWORKS' key={0}>Languages</option>
              <option value='Tools' key={1}>Tools</option>
              <option value='Techniques' key={2}>Techniques</option>
              <option value='Platforms' key={3}>Platforms</option>

@@ -1,1 +1,1 @@
-export const token = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNzI0MzA3Nzc2fQ.55TVydKYMS-15IN8OLQ1UNU-ObJRYhZFH3KJogTL7g4'
+export const token = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNzI0MzUzMzkxfQ.6ffSfzq2x6yXcN1tfZ2RQuPOcO-R5y0ywN_5JhrOmTA'
