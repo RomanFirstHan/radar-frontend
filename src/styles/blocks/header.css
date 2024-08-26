@@ -3,13 +3,14 @@
    color: white;
    font-weight: 700;
    padding: 20px 50px;
-   height: ;
+   /* height: 60px; */
 }
 
 .header__items {
    display: flex;
    flex-direction: row;
    column-gap: 40px;
+
 
 }
 

@@ -1,0 +1,1 @@
+export const Access = ()=> localStorage.setItem('name', 'Artist')

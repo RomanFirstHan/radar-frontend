@@ -1,10 +1,10 @@
-import React from 'react'
+// import React from 'react'
 import CreateTech from '../components/Tech/CreateTech'
 
 
 export function Technology() {
 
-  const tech = CreateTech()
+  const tech = <CreateTech />
 
   return (
     <>

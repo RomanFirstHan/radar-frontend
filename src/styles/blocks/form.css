@@ -1,7 +1,14 @@
+.body__form {
+   flex: 1 1 auto;
+}
+
 .form {
    display: flex;
    flex-direction: column;
    max-width: 556px;
+   /* width: 100%; */
+
+
    row-gap: 25px;
 }
 
@@ -45,4 +52,22 @@
 
 .section__form {
    flex: 1 1 auto;
+}
+
+.scrollable-container {
+   flex: 1 1 auto;
+   height: 437px;
+   overflow: auto;
+   border: 1px solid black;
+   border-radius: 14px;
+   /* display: flex;
+   flex-direction: column; */
+
+   padding: 18px 30px;
+
+}
+
+.tech__item {
+   display: block;
+   font-weight: 700;
 }

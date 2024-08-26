@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: 'Arial', arial, helvetica, sans-serif;
   padding-bottom: 50px;
 }
@@ -20,7 +20,7 @@ td {
   width: 50%;
   vertical-align: top;
   padding-right: 60px;
-}
+} */
 
 .hover-underline {
   text-decoration: none;
@@ -32,6 +32,30 @@ td {
 
 .radar {
   /* background-color: #000; */
-  display: flex;
+  /* display: flex; */
   justify-content: center;
+  overflow: visible;
+  transform: scale(1);
+
 }
+
+
+@media (max-width: 1526px) {
+  .radar {
+    transform: scale(0.8);
+    ;
+
+  }
+}
+
+@media (max-width: 1300px) {
+  .radar {
+    transform: scale(0.7);
+    ;
+
+  }
+}
+
+/* #radar {
+  object-fit: contain;
+} */

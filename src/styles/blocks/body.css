@@ -1,0 +1,11 @@
+.body {
+   display: flex;
+   justify-content: space-between;
+   column-gap: 25px;
+
+
+}
+
+/* .scrollable-container {
+   flex-grow: 0;
+} */

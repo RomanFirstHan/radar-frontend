@@ -334,7 +334,7 @@ export function radar_visualization(config, d3) {
                .text(function(d, i) { return d.id + ". " + d.label; })
                .style("font-family", config.font_family)
                .style("font-size", "11px")
-               .on("mouseover", function(d) { console.log(d); showBubble(d); highlightLegendItem(d); })
+               .on("mouseover", function(d) { showBubble(d); highlightLegendItem(d); })
                .on("mouseout", function(d) { hideBubble(d); unhighlightLegendItem(d); });
        }
      }
