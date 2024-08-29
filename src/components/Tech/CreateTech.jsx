@@ -74,6 +74,7 @@ const handleSubmit = async (e) => {
     .then(response => response.json())
     .then(result => console.log(result))
     .then(()=>setName(''))
+    .then(()=>handleUpdate())
     // .then(result => setAnswer(result))
     .catch(err => console.log(err))
     .finally(() => setIsLoading(false))

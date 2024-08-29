@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Route, Routes, link } from 'react-router-dom'
+import { NavLink, Route, Routes } from 'react-router-dom'
 
 import CategoryScores from './categoryScores'
 

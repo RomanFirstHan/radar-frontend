@@ -1,3 +1,5 @@
+
+
 const request = (token, setEntries) =>{
    fetch('http://localhost:8080/api/tech/getAllSolutions', {
      'method': 'GET',
@@ -11,6 +13,22 @@ const request = (token, setEntries) =>{
    .then(result=> Array.isArray(result.entries) && setEntries(result.entries))
    .catch(error=>console.log('Error :', error))
  }
+
+
+
+ const getByCategory = (token, category, setEntries) =>{
+  fetch('http://localhost:8080/api/tech/getByCategory/'+category, {
+    'method': 'GET',
+    'headers': {
+      'accept': '*/*',
+      'Authorization': token,
+      'Content-Type': 'application/json' 
+    }
+  })
+  .then(response => response.json())
+  .then(result=> Array.isArray(result.entries) && setEntries(result.entries))
+  .catch(error=>console.log('Error :', error))
+}
 
 
 
@@ -37,5 +55,6 @@ const ILoginRequest = (login, password ) => {
    }
 
  export {ILoginRequest,
-         request
+         request,
+         getByCategory 
  };

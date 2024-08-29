@@ -1,35 +1,47 @@
-import {React, useState} from 'react'
+import {React} from 'react'
+import { useAuth } from '../hook/useAuth'
 
-export default function ItemScore() {
+export default function ItemScore({techname, id, handleUpdate}) {
 
+  const token = `Bearer ${useAuth().token}`
 
-   const [score, setScore] = useState('')
+  //  const [score, setScore] = useState('')
+
+  //  const body = {
+  //   "techId": id,
+  //   "scoreValue": score
+  //  }
 
    const handleChange = (e) => {
     // e.preventDefault()
     console.log(e)
     
-    fetch('http://localhost:8080/api/tech/createSolution', {
+    fetch('http://localhost:8080/api/score/addOrUpdate', {
       'method': 'POST',
-      'body': JSON.stringify(),
+      'body': JSON.stringify(
+        {
+        "techId": id,
+        "scoreValue": Number(e)
+        }
+      ),
        'headers': {
         'accept': '*/*',
-        'Authorization': '',
+        'Authorization': token,
         'Content-Type': 'application/json' 
         }
   
     })
       .then(response => response.json())
-      .then(result => console.log(result))}
-
-
-
+      .then(result => console.log(result))
+      .then(()=>handleUpdate())}
    
   return (
     <>
       <article className='item-score'>
-         <div className="item-score__title">JavaScript</div>
-         <select name="" id="roles" className="score__input" defaultValue={'default'} required onChange={(e)=>handleChange(e.target.value)}>
+         <div className="item-score__title">{techname}</div>
+         <select name="" id="roles" className="score__input" defaultValue={'default'} required onChange={(e)=>{
+          
+          handleChange(e.target.value)}}>
             <option value="default" disabled selected>score</option>
             <option value="1">1</option>
             <option value="2">2</option>
