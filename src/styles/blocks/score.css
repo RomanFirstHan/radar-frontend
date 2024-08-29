@@ -1,0 +1,32 @@
+.header-score__items {
+   display: flex;
+   flex-direction: row;
+   column-gap: 40px;
+   justify-content: center;
+}
+
+.item-score {
+   display: flex;
+
+}
+
+.item-score__title {
+   border: 1px solid black;
+   border-radius: 14px;
+
+   padding: 18px 30px;
+}
+
+.score__input {
+   appearance: none;
+   /* Убираем стандартную стрелочку */
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   cursor: pointer;
+   border-radius: 10px;
+   height: 35px;
+}
+
+.score-body {
+   width: 600px;
+}

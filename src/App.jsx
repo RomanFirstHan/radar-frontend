@@ -22,12 +22,12 @@ function App() {
               <Radar />
             }/> 
           <Route path= '/Technology' element={
-            // <RequiredAuth>
+            <RequiredAuth>
               <Technology />
-            // </RequiredAuth>
+            </RequiredAuth>
           }/> 
           <Route path= '/Auth' element={<Auth />}/> 
-          <Route path= '/Score' element={<Score />}/> 
+          <Route path= '/Score/*' element={<Score />}/> 
         </Route>
       </Routes>
     </AuthProvider>    

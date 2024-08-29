@@ -22,10 +22,11 @@ export function Radar() {
       }
     })
     .then(response => response.json())
+    // .then(console.log(123))
     .then(res => {
 
-      // console.log(res)
-      
+      console.log(res.entries.filter(sol=>sol.ring!=4))
+      // debugger
         radar_visualization({
           repo_url: "https://t1.ru/",
           title: "Технический радар T1",
@@ -42,7 +43,7 @@ export function Radar() {
             { name: "ASSESS", color: "#f6c033" },
             { name: "HOLD", color: "#ff5b69" },
           ],
-          entries: res.entries,
+          entries: res.entries.filter(sol=>sol.ring!=4),
         }, d3);
       
     })

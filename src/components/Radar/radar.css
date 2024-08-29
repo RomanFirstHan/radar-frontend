@@ -50,8 +50,19 @@ td {
 
 @media (max-width: 1300px) {
   .radar {
-    transform: scale(0.7);
-    ;
+    transform: translate(-40px, -140px) scale(0.7);
+
+
+  }
+
+
+}
+
+
+@media (max-width: 1150px) {
+  .radar {
+    transform: translate(-180px, -200px) scale(0.6);
+
 
   }
 }

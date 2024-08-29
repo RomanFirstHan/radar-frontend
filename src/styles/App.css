@@ -7,4 +7,5 @@
 @import url(./blocks/button.css);
 @import url(./blocks/tech-form.css);
 @import url(../components/Radar/radar.css);
-@import url(./blocks/body.css)
+@import url(./blocks/body.css);
+@import url(./blocks/score.css)

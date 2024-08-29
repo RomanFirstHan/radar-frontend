@@ -111,7 +111,7 @@ const techName = '2'
 
         </select>
         </div>
-        <button className='button form__button' type='submit'>Добавить технологию</button>
+        <button className='button form__button' type='submit' onSubmit={handleUpdate}>Добавить технологию</button>
           </form>
         <div>{isLoading && <p className='loading'>Грузим ответ</p>}</div>
       </div>

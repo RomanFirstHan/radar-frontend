@@ -9,6 +9,7 @@ const request = (token, setEntries) =>{
    })
    .then(response => response.json())
    .then(result=> Array.isArray(result.entries) && setEntries(result.entries))
+   .catch(error=>console.log('Error :', error))
  }
 
 
