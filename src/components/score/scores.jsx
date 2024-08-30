@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink, Route, Routes } from 'react-router-dom'
 
 import CategoryScores from './categoryScores'
+import CategoryScoresD from './categoryScoresD'
 
 const setActive = ({isActive})=> isActive ? 'active-link-score' : 'score__link'
 
@@ -20,7 +21,7 @@ export default function Scores() {
       <Route path="Tools" element={<CategoryScores category='TOOLS' />} />
       <Route path="Techniques" element={<CategoryScores category='TECHNIQUES' />} />
       <Route path="Platforms" element={<CategoryScores category='PLATFORMS' />} />
-      <Route path="Done" element={<CategoryScores category='Done' />} />
+      <Route path="Done" element={<CategoryScoresD category='Done' />} />
     </Routes>
     </>
   )

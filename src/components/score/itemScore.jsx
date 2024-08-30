@@ -1,7 +1,7 @@
 import {React} from 'react'
 import { useAuth } from '../hook/useAuth'
 
-export default function ItemScore({techname, id, handleUpdate}) {
+export default function ItemScore({techname, id, handleUpdate, curScore}) {
 
   const token = `Bearer ${useAuth().token}`
 
@@ -39,10 +39,10 @@ export default function ItemScore({techname, id, handleUpdate}) {
     <>
       <article className='item-score'>
          <div className="item-score__title">{techname}</div>
-         <select name="" id="roles" className="score__input" defaultValue={'default'} required onChange={(e)=>{
+         <select name="" id="roles" className="score__input" defaultValue={curScore||'default'} required onChange={(e)=>{
           
           handleChange(e.target.value)}}>
-            <option value="default" disabled selected>score</option>
+            <option value="default"  disabled selected>score</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

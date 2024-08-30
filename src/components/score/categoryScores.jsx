@@ -10,13 +10,14 @@ export default function CategoryScores({category}) {
   useEffect(()=>{getByCategory(token, category, setEntries)
   }, [category])
 
-  const handleUpdate =() => getByCategory(token, category, setEntries)
+  const handleUpdate = () => getByCategory(token, category, setEntries)
 
   
 
   
   
   return (
+    
     <div className='score-body'>
       
       {entries.map((el) => <ItemScore key={el.id} techname={el.label} id={el.id} handleUpdate={handleUpdate}/>)}

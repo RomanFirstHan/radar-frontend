@@ -17,7 +17,7 @@ const request = (token, setEntries) =>{
 
 
  const getByCategory = (token, category, setEntries) =>{
-  fetch('http://localhost:8080/api/tech/getByCategory/'+category, {
+  fetch('http://localhost:8080/api/score/getNotScoredTechSolutionsByCategory/'+category, {
     'method': 'GET',
     'headers': {
       'accept': '*/*',
@@ -30,6 +30,19 @@ const request = (token, setEntries) =>{
   .catch(error=>console.log('Error :', error))
 }
 
+const getByScores = (token, setEntries) =>{
+  fetch('http://localhost:8080/api/score/getScores', {
+    'method': 'GET',
+    'headers': {
+      'accept': '*/*',
+      'Authorization': token,
+      'Content-Type': 'application/json' 
+    }
+  })
+  .then(response => response.json())
+  .then(result=> Array.isArray(result) && setEntries(result))
+  .catch(error=>console.log('Error :', error))
+}
 
 
 const ILoginRequest = (login, password ) => {
@@ -56,5 +69,6 @@ const ILoginRequest = (login, password ) => {
 
  export {ILoginRequest,
          request,
-         getByCategory 
+         getByCategory,
+         getByScores
  };

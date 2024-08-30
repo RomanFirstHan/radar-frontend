@@ -28,7 +28,7 @@ export default function Login() {
     .then((res) =>  signIn(res.accessToken, ()=>navigate(fromPage)))
     // .then(result => console.log(result))
     // .then( signIn('user', ()=>navigate(fromPage)))
-    .catch(error=>console.log('sasha gay'))
+    .catch(error=>console.log('Error'))
     .finally(() => setIsLoading(false))
   }
  
