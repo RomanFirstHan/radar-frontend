@@ -3,6 +3,7 @@ import { token } from '../../utils/token'
 import {useAuth} from '../hook/useAuth'
 import Technology from './Technology/itemTechnology'
 import { request, updateEffectiveness } from '../api/MainApi'
+import Modal from '../modal/Modal'
 
 
 export default function CreateTech() {
@@ -12,7 +13,7 @@ export default function CreateTech() {
   
   const token = `Bearer ${useAuth().token}`
 
-
+ 
   const [name, setName] = useState('')
   const [URL, setURL] = useState('')
   const [role, setRole] = useState('')
@@ -90,11 +91,11 @@ const techName = '2'
         <div className='body__form'>
           <form className='form' onSubmit={handleSubmit}>
         <div className='form__item'>
-          <label htmlFor="name" className='form__title'>Название технологии</label>
+          <label htmlFor="name" className='form__title'>Название новой технологии</label>
           <input type="text" placeholder='Название технологии' id="name" className='form__input input' onChange={(e) => setName(e.target.value)} value={name} />
         </div>
         <div className='form__item'>
-          <label htmlFor="lastName" className='form__title'>Ссылка</label>
+          <label htmlFor="lastName" className='form__title'>Ссылка на документацию</label>
           <input type="text" placeholder='Ссылка' id="URL" className='form__input input' onChange={(e) => setURL(e.target.value)} />
         </div>
         {/* <div className='form__item'>
@@ -102,7 +103,7 @@ const techName = '2'
           <input type="email" placeholder='Категория' id="email" className='form__input input' onChange={(e) => setEmail(e.target.value)} />
         </div> */}
         <div className='form__item'>
-        <label htmlFor="lastName" className='form__title'>Выберите категорию</label>
+        <label htmlFor="lastName" className='form__title'>Выберите категорию технологии</label>
         <select name="" id="roles" className="form__input" defaultValue={'default'} required onChange={(e)=> setRole(e.target.value)}>
           <option value="default" disabled>Выберите категорию</option>
           
@@ -121,7 +122,10 @@ const techName = '2'
           </div>
         <div>{isLoading && <p className='loading'>Грузим ответ</p>}</div>
       </div>
+      <div className='scrollable'>
+        <div className="form__title padding">Удаление технологий</div>
       <div className="scrollable-container">
+        
       <ul className='scrollable__list'>
          
          {entries.map((el) => <Technology key={el.id} techname={el.label} id={el.id} handleUpdate={handleUpdate}/>)}
@@ -130,6 +134,8 @@ const techName = '2'
        </ul>
       </div>
       </div>
+      </div>
+      
     </>
   )
 }

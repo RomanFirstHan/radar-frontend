@@ -44,6 +44,23 @@ const getByScores = (token, setEntries) =>{
   .catch(error=>console.log('Error :', error))
 }
 
+ const deletes = (token, id, handleUpdate) => {
+    fetch('http://localhost:8080/api/tech/delete/'+id, {
+      'method': 'DELETE',
+       'headers': {
+        'accept': '*/*',
+        'Authorization': token,
+        'Content-Type': 'application/json' 
+        }
+  
+    })
+      // .then(response => response.json())
+      .then(()=>handleUpdate())
+      .then(result => console.log(result))
+      
+      // .then(result => setAnswer(result))
+      .catch(err => console.log(err))
+  }
 
 const ILoginRequest = (login, password ) => {
    return  fetch('http://localhost:8080/api/auth/login', {
@@ -83,6 +100,7 @@ const ILoginRequest = (login, password ) => {
          request,
          getByCategory,
          getByScores,
-         updateEffectiveness
+         updateEffectiveness,
+         deletes
  };
 

@@ -1,14 +1,16 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {useAuth} from '../hook/useAuth'
 import { Access } from '../api/storageAcces';
 import { ILoginRequest } from '../api/MainApi';
 
 export default function Login() {
+  const {role} = useAuth();
    
    const navigate = useNavigate();
    const location = useLocation();
    const {signIn} = useAuth();
+   const {singout} = useAuth();
 
    const fromPage = location.state?.from?.pathname || '/'
 
@@ -18,6 +20,12 @@ export default function Login() {
    const [password, setPass] = useState('')
 
   const [wrong, setWrong] = useState(null)
+
+  useEffect(()=>{
+    singout('')
+  }
+    ,[]
+  )
    
  
  const handleSubmit =  async (e) => {
@@ -39,7 +47,7 @@ export default function Login() {
 
   return (
    <>
-   <div className="">{fromPage}</div>
+   
    <form className='form' onSubmit={handleSubmit}>
      <div className='form__item'>
        <label htmlFor="name" className='form__title'>Логин</label>

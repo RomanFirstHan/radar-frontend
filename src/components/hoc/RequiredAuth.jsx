@@ -9,7 +9,7 @@ export function RequiredAuth({children}) {
    const {role} = useAuth()
    console.log(role)
 
-   if (role!=='ADMIN') {
+   if (role!=='ADMIN' ) {
       return <Navigate to='/Auth' state= {{from: location}} />
    } 
 

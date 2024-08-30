@@ -98,7 +98,7 @@ export function Radar() {
     <section className='container radar'>
     <svg id="radar" />
 
-    <h1>Radar</h1>
+    
     </section>
     </>
   )

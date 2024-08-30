@@ -51,11 +51,15 @@
 }
 
 .section__form {
-   flex: 1 1 auto;
+   flex: 1 0 auto;
+}
+
+.scrollable {
+   flex: 1 0 auto;
 }
 
 .scrollable-container {
-   flex: 1 1 auto;
+   flex: 1 0 auto;
    height: 437px;
    overflow: auto;
    border: 1px solid black;
@@ -70,4 +74,8 @@
 .tech__item {
    display: block;
    font-weight: 700;
+}
+
+.padding {
+   margin-bottom: 15px;
 }

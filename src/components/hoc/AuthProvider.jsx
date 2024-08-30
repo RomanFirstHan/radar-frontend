@@ -15,7 +15,6 @@ export const AuthProvider =  ({children}) => {
    const singout = (cb) => {
       setToken(null);
       setRole(null);
-      cb();
    }
 
    const value = {role, token, signIn, singout}

@@ -1,39 +1,44 @@
-import React from 'react'
+import {React, useState} from 'react'
 import { useAuth } from '../../hook/useAuth'
+import Modal from '../../modal/Modal'
 
 
 
 
 export default function Technology({techname, id, handleUpdate}) {
 
-  const token = `Bearer ${useAuth().token}`
+  const [modalActive, setModalActive]=useState(false)
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    fetch('http://localhost:8080/api/tech/delete/'+id, {
-      'method': 'DELETE',
-       'headers': {
-        'accept': '*/*',
-        'Authorization': token,
-        'Content-Type': 'application/json' 
-        }
+  const token = `Bearer ${useAuth().token}`
   
-    })
-      // .then(response => response.json())
-      .then(()=>handleUpdate())
-      .then(result => console.log(result))
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   fetch('http://localhost:8080/api/tech/delete/'+id, {
+  //     'method': 'DELETE',
+  //      'headers': {
+  //       'accept': '*/*',
+  //       'Authorization': token,
+  //       'Content-Type': 'application/json' 
+  //       }
+  
+  //   })
+  //     // .then(response => response.json())
+  //     .then(()=>handleUpdate())
+  //     .then(result => console.log(result))
       
-      // .then(result => setAnswer(result))
-      .catch(err => console.log(err))
-  }
+  //     // .then(result => setAnswer(result))
+  //     .catch(err => console.log(err))
+  // }
   
 
   return (
+    <>
     <li className='tech__item'>
       <article className='tech__title'>
          {techname}
       </article>
-      <button type='submit' className='button__trash' onClick={handleSubmit}>
+      <button type='submit' className='button__trash' onClick={()=>setModalActive(true)}>
       <svg svg fill="#000000" width="30px" height="30px" viewBox="0 0 400 400" id="Trash" version="1.1" >
           <g id="XMLID_10_">
             <polygon id="XMLID_11_" points="213.3,26.7 240,26.7 240,0 213.3,0 186.7,0 160,0 160,26.7 186.7,26.7  "/>
@@ -51,6 +56,7 @@ export default function Technology({techname, id, handleUpdate}) {
       </svg>
       </button>
     </li>
-      
+    <Modal active={modalActive}  setActive={setModalActive} id={id} handleUpdate={handleUpdate}/><Modal/>
+    </>
   )
 }
