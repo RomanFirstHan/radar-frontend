@@ -16,7 +16,7 @@ export default function CategoryScoresD({category}) {
     
     <div className='score-body'>
       
-      {entries.map((el) => <ItemScore key={el.id} techname={el.techSolution.name} id={el.id} handleUpdate={handleUpdate} curScore={el.scoreValue}/>)}
+      {entries.map((el) => <ItemScore key={el.id} techname={el.techSolution.name} id={el.techSolution.id} handleUpdate={handleUpdate} curScore={el.scoreValue}/>)}
       
     </div>
   )

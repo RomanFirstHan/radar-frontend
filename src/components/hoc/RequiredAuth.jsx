@@ -6,8 +6,10 @@ export function RequiredAuth({children}) {
 
    const location = useLocation();
    const {token} = useAuth();
+   const {role} = useAuth()
+   console.log(role)
 
-   if (!token) {
+   if (role!=='ADMIN') {
       return <Navigate to='/Auth' state= {{from: location}} />
    } 
 

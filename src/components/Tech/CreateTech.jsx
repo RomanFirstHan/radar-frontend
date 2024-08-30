@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { token } from '../../utils/token'
 import {useAuth} from '../hook/useAuth'
 import Technology from './Technology/itemTechnology'
-import { request } from '../api/MainApi'
+import { request, updateEffectiveness } from '../api/MainApi'
 
 
 export default function CreateTech() {
@@ -33,6 +33,7 @@ export default function CreateTech() {
   }, [])
 
   const handleUpdate = () => request(token, setEntries)
+  const handleUpdateScore = () => updateEffectiveness(token)
 
 
 
@@ -113,6 +114,7 @@ const techName = '2'
         </select>
         </div>
         <button className='button form__button' type='submit' onSubmit={handleUpdate}>Добавить технологию</button>
+        <button className='button form__button' onClick={handleUpdateScore}>Обновить данные</button>
           </form>
         <div>{isLoading && <p className='loading'>Грузим ответ</p>}</div>
       </div>

@@ -25,7 +25,7 @@ export default function Login() {
 
     ILoginRequest(name, password)
     // .then(result => console.log(result))
-    .then((res) =>  signIn(res.accessToken, ()=>navigate(fromPage)))
+    .then((res) =>  signIn(res.accessToken, res.role, ()=>navigate(fromPage)))
     // .then(result => console.log(result))
     // .then( signIn('user', ()=>navigate(fromPage)))
     .catch(error=>console.log('Error'))

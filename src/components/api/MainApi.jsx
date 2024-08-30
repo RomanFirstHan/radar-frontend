@@ -67,8 +67,22 @@ const ILoginRequest = (login, password ) => {
       // .catch(err => console.log(err))
    }
 
+   const updateEffectiveness = (token)=>{
+    fetch('http://localhost:8080/api/tech/updateEffectivenessOnClick', {
+      'method': 'POST',
+      'headers': {
+        'accept': '*/*',
+        'Authorization': token,
+        'Content-Type': 'application/json' 
+      }
+    })
+    .catch(error=>console.log('Error :', error))
+   }
+
  export {ILoginRequest,
          request,
          getByCategory,
-         getByScores
+         getByScores,
+         updateEffectiveness
  };
+
