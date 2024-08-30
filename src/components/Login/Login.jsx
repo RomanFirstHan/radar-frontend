@@ -17,18 +17,21 @@ export default function Login() {
    const [name, setLogin] = useState('')
    const [password, setPass] = useState('')
 
-
+  const [wrong, setWrong] = useState(null)
    
  
  const handleSubmit =  async (e) => {
     e.preventDefault()
+    setIsLoading(true)
 
     ILoginRequest(name, password)
     // .then(result => console.log(result))
     .then((res) =>  signIn(res.accessToken, res.role, ()=>navigate(fromPage)))
     // .then(result => console.log(result))
     // .then( signIn('user', ()=>navigate(fromPage)))
-    .catch(error=>console.log('Error'))
+    .catch(error=>{console.log('Error')
+      setWrong(true)
+    })
     .finally(() => setIsLoading(false))
   }
  
@@ -52,7 +55,9 @@ export default function Login() {
      </div> */}
      <button className='button form__button' type='submit'>Авторизация</button>
    </form>
+
    <div>{isLoading && <p className='loading'>Грузим ответ</p>}</div>
+   {wrong && <div className='error'>Пароль или логин введены неверно</div>}
  </>
   )
 }

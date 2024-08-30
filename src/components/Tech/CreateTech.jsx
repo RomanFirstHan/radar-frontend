@@ -114,8 +114,11 @@ const techName = '2'
         </select>
         </div>
         <button className='button form__button' type='submit' onSubmit={handleUpdate}>Добавить технологию</button>
-        <button className='button form__button' onClick={handleUpdateScore}>Обновить данные</button>
+       
           </form>
+          <div className='scoreUp'>
+          <button className='button form__button add' onClick={handleUpdateScore}>Обновить все оценки</button>
+          </div>
         <div>{isLoading && <p className='loading'>Грузим ответ</p>}</div>
       </div>
       <div className="scrollable-container">

@@ -10,6 +10,7 @@ import { Score } from './Pages/Score';
 import { Layout } from './components/Layout';
 import { RequiredAuth } from './components/hoc/RequiredAuth';
 import { AuthProvider } from './components/hoc/AuthProvider';
+import { RequiredAuthVote } from './components/hoc/RequiredAuthVote';
 import {React} from 'react';
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route path= '/' element={
             
-              <Radar />
+            <RequiredAuthVote>
+            <Radar />
+            </RequiredAuthVote>
             }/> 
           <Route path= '/Technology' element={
             <RequiredAuth>
@@ -27,7 +30,10 @@ function App() {
             </RequiredAuth>
           }/> 
           <Route path= '/Auth' element={<Auth />}/> 
-          <Route path= '/Score/*' element={<Score />}/> 
+          <Route path= '/Score/*' element={
+            <RequiredAuthVote>
+            <Score />
+            </RequiredAuthVote>}/> 
         </Route>
       </Routes>
     </AuthProvider>    
