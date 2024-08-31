@@ -10,7 +10,7 @@ export function Technology() {
     <>
       <section className='container'>
         <div className='tech-form'>{tech}</div>
-        <h1>Technology</h1>
+        
       </section>
     </>
   )

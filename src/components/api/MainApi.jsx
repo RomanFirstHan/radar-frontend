@@ -1,7 +1,7 @@
-
+import { url } from "./utilsApi"
 
 const request = (token, setEntries) =>{
-   fetch('http://localhost:8080/api/tech/getAllSolutions', {
+   fetch(url+'api/tech/getAllSolutions', {
      'method': 'GET',
      'headers': {
        'accept': '*/*',
@@ -17,7 +17,7 @@ const request = (token, setEntries) =>{
 
 
  const getByCategory = (token, category, setEntries) =>{
-  fetch('http://localhost:8080/api/score/getNotScoredTechSolutionsByCategory/'+category, {
+  fetch(url+'api/score/getNotScoredTechSolutionsByCategory/'+category, {
     'method': 'GET',
     'headers': {
       'accept': '*/*',
@@ -31,7 +31,7 @@ const request = (token, setEntries) =>{
 }
 
 const getByScores = (token, setEntries) =>{
-  fetch('http://localhost:8080/api/score/getScores', {
+  fetch(url+'api/score/getScores', {
     'method': 'GET',
     'headers': {
       'accept': '*/*',
@@ -44,8 +44,24 @@ const getByScores = (token, setEntries) =>{
   .catch(error=>console.log('Error :', error))
 }
 
+const createSolution = (body, token) =>{
+  fetch(url+'api/tech/createSolution', {
+    'method': 'POST',
+    'body': JSON.stringify(body),
+     'headers': {
+      'accept': '*/*',
+      'Authorization': token,
+      'Content-Type': 'application/json' 
+      }
+
+  })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    
+}
+
  const deletes = (token, id, handleUpdate) => {
-    fetch('http://localhost:8080/api/tech/delete/'+id, {
+    fetch(url+'api/tech/delete/'+id, {
       'method': 'DELETE',
        'headers': {
         'accept': '*/*',
@@ -63,7 +79,7 @@ const getByScores = (token, setEntries) =>{
   }
 
 const ILoginRequest = (login, password ) => {
-   return  fetch('http://localhost:8080/api/auth/login', {
+   return  fetch(url+'api/auth/login', {
       'method': 'POST',
       'body': JSON.stringify({
          "login": login,
@@ -84,8 +100,20 @@ const ILoginRequest = (login, password ) => {
       // .catch(err => console.log(err))
    }
 
+   const getAllSolutions =(token)=> {
+    fetch(url+'api/tech/getAllSolutions', {
+      'method': 'GET',
+      'headers': {
+        'accept': '*/*',
+        'Authorization': token,
+        'Content-Type': 'application/json' 
+      }
+    })
+    .then(response => response.json())
+   }
+
    const updateEffectiveness = (token)=>{
-    fetch('http://localhost:8080/api/tech/updateEffectivenessOnClick', {
+    fetch(url+'api/tech/updateEffectivenessOnClick', {
       'method': 'POST',
       'headers': {
         'accept': '*/*',
@@ -96,11 +124,17 @@ const ILoginRequest = (login, password ) => {
     .catch(error=>console.log('Error :', error))
    }
 
+  
+
  export {ILoginRequest,
          request,
          getByCategory,
          getByScores,
          updateEffectiveness,
-         deletes
+         deletes, 
+         createSolution, 
+         getAllSolutions,
  };
 
+
+ 

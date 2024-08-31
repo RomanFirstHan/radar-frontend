@@ -3,6 +3,8 @@ import { radar_visualization } from '../utils/utils';
 import data from '../components/Radar/config.json'
 import * as d3 from 'd3';
 import { useAuth } from '../components/hook/useAuth';
+import { getAllSolutions } from '../components/api/MainApi';
+import { url } from '../components/api/utilsApi';
 
 
 
@@ -13,7 +15,7 @@ export function Radar() {
   console.log(token)
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/tech/getAllSolutions', {
+    fetch(url+'api/tech/getAllSolutions', {
       'method': 'GET',
       'headers': {
         'accept': '*/*',
@@ -22,7 +24,6 @@ export function Radar() {
       }
     })
     .then(response => response.json())
-    // .then(console.log(123))
     .then(res => {
 
       console.log(res.entries.filter(sol=>sol.ring!=4))

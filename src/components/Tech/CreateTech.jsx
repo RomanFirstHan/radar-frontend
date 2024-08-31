@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { token } from '../../utils/token'
 import {useAuth} from '../hook/useAuth'
 import Technology from './Technology/itemTechnology'
-import { request, updateEffectiveness } from '../api/MainApi'
+import { createSolution, request, updateEffectiveness } from '../api/MainApi'
 import Modal from '../modal/Modal'
 
 
@@ -63,19 +63,8 @@ console.log(token)
 const handleSubmit = async (e) => {
   e.preventDefault()
   setIsLoading(true)
-  fetch('http://localhost:8080/api/tech/createSolution', {
-    'method': 'POST',
-    'body': JSON.stringify(body),
-     'headers': {
-      'accept': '*/*',
-      'Authorization': token,
-      'Content-Type': 'application/json' 
-      }
-
-  })
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .then(()=>setName(''))
+  createSolution(body, token)
+  .then(()=>setName(''))
     .then(()=>handleUpdate())
     // .then(result => setAnswer(result))
     .catch(err => console.log(err))

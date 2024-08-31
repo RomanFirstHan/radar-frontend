@@ -16,12 +16,12 @@ COPY . .
 # Собираем проект (если это необходимо)
 RUN npm run build
 
-FROM nginx:alpine
+# FROM nginx:alpine
 
-COPY --from=build /app/build /home/admin/doc/radar-frontend
+# COPY --from=build /app/build /usr/share/nginx/html
 
 # Команда по умолчанию для запуска приложения
 CMD ["serve", "-s", "build"]
 
 # Указываем, какой порт должен быть открыт
-EXPOSE 80
+EXPOSE 3000
