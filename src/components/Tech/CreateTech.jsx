@@ -4,12 +4,12 @@ import {useAuth} from '../hook/useAuth'
 import Technology from './Technology/itemTechnology'
 import { createSolution, request, updateEffectiveness } from '../api/MainApi'
 import Modal from '../modal/Modal'
+import { url } from '../api/utilsApi'
 
 
 export default function CreateTech() {
 
   const [isLoading, setIsLoading] = useState(false)
-  let url = 80
   
   const token = `Bearer ${useAuth().token}`
 
@@ -63,12 +63,23 @@ console.log(token)
 const handleSubmit = async (e) => {
   e.preventDefault()
   setIsLoading(true)
-  createSolution(body, token)
+  fetch(url+'api/tech/createSolution', {
+    'method': 'POST',
+    'body': JSON.stringify(body),
+     'headers': {
+      'accept': '*/*',
+      'Authorization': token,
+      'Content-Type': 'application/json' 
+      }
+
+  })
+    .then(response => response.json())
+    .then(result => console.log(result))
   .then(()=>setName(''))
-    .then(()=>handleUpdate())
+  .then(()=>handleUpdate())
     // .then(result => setAnswer(result))
-    .catch(err => console.log(err))
-    .finally(() => setIsLoading(false))
+  .catch(err => console.log(err))
+  .finally(() => setIsLoading(false))
 }
 
 const techName = '2'
