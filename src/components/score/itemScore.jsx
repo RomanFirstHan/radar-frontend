@@ -1,5 +1,6 @@
 import {React} from 'react'
 import { useAuth } from '../hook/useAuth'
+import { url } from '../api/utilsApi'
 
 export default function ItemScore({techname, id, handleUpdate, curScore}) {
 
@@ -12,11 +13,14 @@ export default function ItemScore({techname, id, handleUpdate, curScore}) {
   //   "scoreValue": score
   //  }
 
+
+
+
    const handleChange = (e) => {
     // e.preventDefault()
     console.log(e)
     
-    fetch('http://localhost:8080/api/score/addOrUpdate', {
+    fetch(url+'api/score/addOrUpdate', {
       'method': 'POST',
       'body': JSON.stringify(
         {
@@ -33,7 +37,9 @@ export default function ItemScore({techname, id, handleUpdate, curScore}) {
     })
       .then(response => response.json())
       .then(result => console.log(result))
-      .then(()=>handleUpdate())}
+      .then(()=>handleUpdate())
+      .catch(er=>console.log(er))  
+    }
    
   return (
     <>
